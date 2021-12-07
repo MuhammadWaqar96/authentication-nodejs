@@ -21,7 +21,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${process.env.HOST}:${process.env.DB_PORT}/${process.env.DB}`, {
+  .connect(`mongodb://${process.env.PASSWORD}:${process.env.PASSWORD}@${process.env.HOST},${process.env.HOST},${process.env.HOST}/Cluster0?ssl=true&replicaSet=Main-shard-0&authSource=admin&retryWrites=true`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
