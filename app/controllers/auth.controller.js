@@ -63,7 +63,7 @@ exports.signup = (req, res) => {
 
 exports.signin = (req, res) => {
   User.findOne({
-    username: req.body.username,
+    email: req.body.email,
   })
     .populate("roles", "-__v")
     .exec(async (err, user) => {
@@ -154,7 +154,7 @@ exports.refreshToken = async (req, res) => {
 };
 
 exports.forgetPass = async (req, res, next) => {
-  User.findOne({ username: req.body.username }, function (err, data) {
+  User.findOne({ email: req.body.email }, function (err, data) {
     console.log(data);
     if (!data) {
       res.send({ Success: "This Email Is not regestered!" });
